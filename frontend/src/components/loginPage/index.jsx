@@ -20,9 +20,7 @@ const LoginButton = ({ onLogin }) => {
         }),
       });
 
-      if (!res.ok) {
-        throw new Error("Login failed");
-      }
+      if (!res.ok) throw new Error("Login failed");
 
       const data = await res.json();
       onLogin(data);
@@ -37,11 +35,7 @@ const LoginButton = ({ onLogin }) => {
     console.error("Login Failed");
   };
 
-  return (
-    <>
-      <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
-    </>
-  );
+  return <GoogleLogin onSuccess={handleSuccess} onError={handleError} />;
 };
 
 const AuthPage = () => {
@@ -58,22 +52,26 @@ const AuthPage = () => {
       document.body.style.overflow = "";
     }
 
-    // Dọn dẹp khi unmount
     return () => {
       document.body.style.overflow = "";
     };
   }, [state.isLogin]);
 
+  if (!state.isLogin) return null;
+
   return (
     <GoogleOAuthProvider clientId={state.clientId}>
-      <div className="login-container">
-        <div
-          className="login-overlay"
-          onClick={() => dispath(actions.set_is_login(false))}
-        >
-          <div className="login-box" onClick={(e) => e.stopPropagation()}>
-            <div className="title">LOGIN</div>
-            <hr />
+      <div
+        className="login-overlay"
+        onClick={() => dispath(actions.set_is_login(false))}
+      >
+        <div className="login-box" onClick={(e) => e.stopPropagation()}>
+          <h2 className="login-title">Đăng nhập HIORA</h2>
+          <p className="login-subtitle">
+            Chào mừng bạn quay lại! Hãy đăng nhập để tiếp tục.
+          </p>
+          <hr />
+          <div className="google-btn">
             <LoginButton onLogin={handleLogin} />
           </div>
         </div>
