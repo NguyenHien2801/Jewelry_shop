@@ -25,14 +25,14 @@ export default function Header() {
     <header className="header">
       {/* Thanh khuyến mãi */}
       <div className="promo-bar">
-        🎉 HIORA 10 năm – Đại tiệc sinh nhật bùng nổ, ưu đãi đến 25%!
+        🎉 HIORA 10 năm – Hành trình tỏa sáng cùng bạn, tri ân một thập kỷ yêu thương với ưu đãi sinh nhật lên đến 25%!
       </div>
 
       {/* Hàng giữa: logo - tìm kiếm - icon */}
       <div className="header-main">
         <div className="header-left">
           <Link to="/" className="logo">
-            <img src="/logo.png" alt="logo" className="logo-img" />
+            <img src="http://localhost:5000/storages/Logo/Logo.png" alt="logo" className="logo-img" />
             <span>HIORA JEWELRY</span>
           </Link>
         </div>

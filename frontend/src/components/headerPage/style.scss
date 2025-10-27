@@ -1,4 +1,4 @@
-/* ===== Header Style - Jensy.vn Look ===== */
+/* ===== Header Style - HIORA 10 năm Look (FINAL CENTERED VERSION) ===== */
 .header {
   width: 100%;
   background-color: #ffffff;
@@ -8,30 +8,41 @@
   flex-direction: column;
 }
 
-/* --- Thanh khuyến mãi (nếu có) --- */
+/* --- Thanh khuyến mãi sang trọng --- */
 .header .promo-bar {
-  background-color: #728a9e;
+  background: linear-gradient(90deg, #7f98ad, #60798f);
   color: #ffffff;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.4rem 0;
+  font-size: 1rem;
+  padding: 0.55rem 1.5rem;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.3px;
+  text-wrap: balance;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 /* --- Header chính --- */
 .header .header-main {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 3rem;
   background-color: #ffffff;
+  height: 90px;
 }
 
-/* Logo */
+/* --- Logo --- */
 .header .header-main .header-left {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  margin-left: 0.5rem;
+  z-index: 2; /* đảm bảo nằm trên search bar nếu chồng lên */
 }
 
 .header .header-main .header-left .logo {
@@ -44,21 +55,32 @@
 }
 
 .header .header-main .header-left .logo .logo-img {
-  width: 45px;
-  height: 45px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Ô tìm kiếm */
+.header .header-main .header-left .logo .logo-img:hover {
+  transform: scale(1.2);
+}
+
+/* --- Ô tìm kiếm căn giữa tuyệt đối --- */
 .header .header-main .header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .header .header-main .header-center .search-input {
   width: 500px;
-  height: 2.5rem;
+  height: 2.6rem;
   padding: 0 3rem 0 1rem;
   border: 1px solid #d9dee3;
   border-radius: 6px 0 0 6px;
@@ -76,7 +98,7 @@
 .header .header-main .header-center .btn-search {
   background-color: #7f98ad;
   border: none;
-  height: 2.5rem;
+  height: 2.6rem;
   width: 2.8rem;
   border-radius: 0 6px 6px 0;
   cursor: pointer;
@@ -91,11 +113,12 @@
   background-color: #6b879c;
 }
 
-/* Icon bên phải */
+/* --- Icon bên phải --- */
 .header .header-main .header-right {
   display: flex;
   align-items: center;
   gap: 1.2rem;
+  z-index: 2;
 }
 
 .header .header-main .header-right .icon-btn {
@@ -141,7 +164,7 @@
 }
 
 .header .menu-bar a:hover {
-  color: #4c5c8c; /* xanh navy + tím nhẹ */
+  color: #4c5c8c;
 }
 
 /* --- Dropdown chính --- */
@@ -184,7 +207,7 @@
   color: #4c5c8c;
 }
 
-/* --- Dropdown cấp 2 (Trang sức, Đồng hồ) --- */
+/* --- Dropdown cấp 2 --- */
 .header .menu-bar .sub-dropdown {
   position: relative;
 }
@@ -243,6 +266,10 @@
   .header .menu-bar a {
     font-size: 0.95rem;
   }
+
+  .header .header-main .header-center .search-input {
+    width: 320px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -256,5 +283,22 @@
     position: static;
     box-shadow: none;
     border: none;
+  }
+
+  .header .header-main {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .header .header-main .header-center {
+    position: static;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+
+  .header .header-main .header-center .search-input {
+    width: 100%;
   }
 }

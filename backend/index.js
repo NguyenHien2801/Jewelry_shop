@@ -22,6 +22,8 @@ app.use("/auth", googleAuthRouter);
 
 app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
+app.use('/storages', express.static(path.join(__dirname, 'storages')));
+
 app.listen(PORT, () => {
   console.log(`Video server running at http://localhost:${PORT}`);
 });
